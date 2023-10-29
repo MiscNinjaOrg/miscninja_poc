@@ -32,3 +32,4 @@
 *.app
 
 src/images/*
+src/temp.db
