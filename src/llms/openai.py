@@ -3,7 +3,7 @@ import openai
 
 class Chat(LLM):
     def __init__(self, api_key):
-        openai.my_api_key = api_key
+        openai.api_key = api_key
         self.messages = [
             {"role": "system",
              "content": "You are a intelligent assistant."}
@@ -14,10 +14,10 @@ class Chat(LLM):
              {"role": "user",
               "content": prompt}
         )
-        response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
+        response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=self.messages)
         reply = response.choices[0].message.content
         self.messages.append(
-             {"role": "asssistant",
+             {"role": "assistant",
               "content": reply}
         )
         return reply
