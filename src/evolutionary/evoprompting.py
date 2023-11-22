@@ -7,6 +7,7 @@ from datetime import datetime
 import time
 import numpy as np
 from .climate_fever_dataset_temp import OurDataset
+import streamlit as st
 
 class EvoPrompting:
     def __init__(self, api_key, T, M, K, seed_files, prepend_file, data_dir, param_threshold):
@@ -58,7 +59,7 @@ class EvoPrompting:
         loss_fn = torch.nn.CrossEntropyLoss()
         optimizer = torch.optim.SGD(model.parameters(), lr=0.00001, momentum=0.9)
         loss = None
-        for i in range(50):
+        for i in range(20):
             idx = random.randint(0, self.ds.__len__()-3000)
             x, y = self.ds.__getitem__(idx)
             y = y.long()
@@ -67,7 +68,7 @@ class EvoPrompting:
             loss.backward()
             optimizer.step()
         correct = 0
-        for i in range(50):
+        for i in range(10):
             idx = random.randint(0, self.ds.__len__()-3000)
             x, y = self.ds.__getitem__(idx)
             y = y.long()
@@ -75,7 +76,7 @@ class EvoPrompting:
             outputs = torch.argmax(outputs, axis=-1)
             if outputs == y:
                 correct += 1
-        return correct/50
+        return correct/10
     
     def evaluate_children(self, child_architectures):
         for code in child_architectures:
