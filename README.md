@@ -1,5 +1,5 @@
-# miscninja
+# MiscNinja
 
-i'll put something here soon
+An AI Toolkit that does a lot of things
 
-(there are 2 demos in src/, one brute-force searching and the other miscninja (hnsw))
+## EvoPrompting - Evolve (Generate) New Models
