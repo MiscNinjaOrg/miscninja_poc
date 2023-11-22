@@ -1,14 +1,18 @@
 import streamlit as st
 from evolutionary.evoprompting import EvoPrompting
 import os
-import sys
 
 with st.sidebar:
     openai_api_key = st.text_input("OpenAI API Key", key="api_key", type="password")
     "[View the source code](https://github.com/MiscNinjaOrg/miscninja)"
     "[Read the paper](https://arxiv.org/abs/2302.14838)"
 
-st.title("EvoPrompting")
+st.markdown(
+    """
+    # EvoPrompting
+    ##### Upload some seed code files and watch an LLM evolve new models for you!
+    ---------------
+""")
 
 input_page = True
 evolving = False
