@@ -1,5 +1,7 @@
 import streamlit as st
 from llms.openai import GPT_3_5
+from llms.llama import LLAMA
+from huggingface_hub import try_to_load_from_cache
 from wonderwords import RandomWord
 
 st.markdown(
@@ -12,7 +14,7 @@ st.markdown(
 if "conversations" not in st.session_state:
     st.session_state.conversations = {}
 
-models = ["GPT-3.5", "GPT-4.0"]
+models = ["GPT-3.5", "GPT-4.0", "Mistral-7B", "Mistral-7B Instruct"]
 characters = ["Base", "Accelerationist"]
 conversations = list(st.session_state.conversations.keys())[::-1]
 
@@ -26,6 +28,10 @@ with st.sidebar:
 
 if pick_model == "GPT-3.5":
     model = GPT_3_5(openai_api_key)
+if pick_model == "Mistral-7B":
+    model = LLAMA(try_to_load_from_cache("TheBloke/Mistral-7B-v0.1-GGUF", "mistral-7b-v0.1.Q4_K_M.gguf"), chat_format="mistrallite")
+if pick_model == "Mistral-7B Instruct":
+    model = LLAMA(try_to_load_from_cache("TheBloke/Mistral-7B-v0.1-GGUF", "mistral-7b-v0.1.Q4_K_M.gguf"), chat_format="llama-2")
 
 conversation_name = pick_conversation
 if new_conversation:

@@ -3,3 +3,5 @@ class LLM:
         pass
     def generate(self):
         pass
+    def stream(self):
+        pass
