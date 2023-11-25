@@ -2,6 +2,16 @@
 
 An AI Toolkit that does a lot of things
 
+## Installation
+
+```
+git clone https://github.com/MiscNinjaOrg/miscninja
+cd miscninja
+pip install -r requirements.txt
+cd src
+python -m streamlit run ui/Home.py
+```
+
 ## EvoPrompting - Evolve (Generate) New Models
 
 ![evo](assets/evo.png)
