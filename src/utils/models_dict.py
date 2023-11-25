@@ -37,3 +37,8 @@ llm_models_dict = {
         "chat_format": "zephyr"
     },
 }
+
+diffusion_models_dict = {
+    "Stable Diffusion V1.5": "runwayml/stable-diffusion-v1-5",
+    "Stable Diffusion V2.1": "stabilityai/stable-diffusion-2-1"
+}
