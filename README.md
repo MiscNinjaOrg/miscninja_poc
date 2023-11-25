@@ -2,6 +2,8 @@
 
 An AI Toolkit that does a lot of things
 
+Follow me on X for (occasional) updates: https://twitter.com/lordspline
+
 ## Installation
 
 ```
