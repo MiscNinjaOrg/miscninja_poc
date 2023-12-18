@@ -19,7 +19,7 @@ pipeline.scheduler = DPMSolverMultistepScheduler.from_config(pipeline.scheduler.
 
 def on_click(prompt):
     with st.spinner("diffusing..."):
-        st.session_state.image = pipeline(prompt).images[0]
+        st.session_state.image = pipeline(prompt, num_inference_steps=25).images[0]
 
 with st.form("diffuse"):
     prompt = st.text_input("What do you want to see?")
